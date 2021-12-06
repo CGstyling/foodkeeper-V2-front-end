@@ -7,7 +7,7 @@ import {AuthContext} from "../../Context/AuthContext";
 
 function Header() {
     const history = useHistory();
-    const {signOuFalse} = useContext(AuthContext);
+    const {signOutFunction} = useContext(AuthContext);
 
     return (
         <nav className="header">
@@ -35,7 +35,7 @@ function Header() {
             </button>
                 <button
                     type="button"
-                    onClick={signOuFalse}
+                    onClick={signOutFunction}
                 >
                     Log out
                 </button>

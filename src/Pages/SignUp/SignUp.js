@@ -1,12 +1,24 @@
 import React from "react";
 import "./SignUp.css";
 import {useForm} from "react-hook-form";
+// import {useHistory} from "react-router-dom";
+import axios from "axios";
 
 function SignUp({setLoginOpen, setRegisterOpen}) {
+    // const history = useHistory();
     const {register, handleSubmit} = useForm();
 
-
-    function handleFormSubmit(data) {
+    async function handleFormSubmit(data) {
+        try{
+            const result = await axios.post("http://localhost:8080/foodkeeper/signup", {
+                email: data.email,
+                username: data.username,
+                password: data.password,
+            })
+            console.log(result);
+        }catch (e) {
+            console.error(e);
+        }
         setLoginOpen(true);
         setRegisterOpen(false);
         console.log(data)
