@@ -1,11 +1,36 @@
 import React from "react";
 import "./AddRecipe.css"
 import {useForm} from "react-hook-form";
+import axios from "axios";
+import {Link} from "react-router-dom";
 
 function AddRecipe() {
     const {register, handleSubmit} = useForm();
 
-    function onFormSubmit(data) {
+    async function onFormSubmit(data) {
+        const userId = localStorage.getItem("userId")
+        const token = localStorage.getItem("token");
+
+        try {
+            const result = await axios.post("http://localhost:8080/foodkeeper/recipes",{
+              recipeName: data.name,
+              //recipeFile:
+              recipeIngredient: data.ingredients,
+              recipeDescription: data.method,
+              recipeIsPrivate: data.private,
+              user: {
+                  userId: userId
+              },
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(result);
+        }catch (e) {
+            console.error(e)
+        }
         console.log(data)
     }
 
@@ -15,12 +40,12 @@ function AddRecipe() {
 
             <form className="add-recipe-form" onSubmit={handleSubmit(onFormSubmit)}>
 
-                <label htmlFor="title">
+                <label htmlFor="name">
                     <p>Name your recipe:</p>
                     <input
                         type="text"
-                        id="title"
-                        {...register("recipe-title")}
+                        id="name"
+                        {...register("name")}
                     />
                 </label>
 
@@ -57,11 +82,24 @@ function AddRecipe() {
                     </textarea>
                 </label>
                 <br/>
+                <label htmlFor="recipe-private">
+                    <input
+                        type="checkbox"
+                        {...register("private")}
+                    />
+                    Do you want to be your recipe private?
+                </label>
+                <br/>
+                <br/>
+
+                <Link to="/recipe">
                 <button
                     type="submit"
                 >
                     Save recipe!
                 </button>
+                </Link>
+
             </form>
         </div>
     );
