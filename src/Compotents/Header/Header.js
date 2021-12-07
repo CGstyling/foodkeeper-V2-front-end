@@ -10,7 +10,7 @@ function Header() {
     const {signOutFunction} = useContext(AuthContext);
 
     return (
-        <nav className="header">
+        <nav className="header-home">
 
             <Link to="/">
         <span className="logo-container">
@@ -18,7 +18,7 @@ function Header() {
         </span>
             </Link>
 
-            <SearchBar/>
+            {/*<SearchBar/>*/}
 
             <span className="header-buttons">
              <button

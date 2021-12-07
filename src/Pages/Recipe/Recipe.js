@@ -1,11 +1,10 @@
 import React from "react";
 import "./Recipe.css"
 import soep from "../../Assets/soep.jpg"
+import CommentBox from "../../Compotents/Comment/CommentBox";
 
 function Recipe() {
-
-
-    return(
+    return (
         <div className="recipe-container">
 
             <div className="recipe">
@@ -41,16 +40,31 @@ function Recipe() {
                 <h1>Steps:</h1>
                 <div className="recipe-description">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur                               culpadistinctio dolore, eligendi eos ipsa molestias non omnis placeat quia recusandae tempora ullam veritatis.                             Doloremque? ntium animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi eos ipsa molestias non                            omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet, consectetur                                  adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi eos ipsa                            molestias non omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet,                                consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi                         eos ipsa molestias non omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet,                       consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi                         eos ipsa molestias non omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet,                       consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi                         eos ipsa molestias non omnis placeat quia recusandae tempora ullam veritatis. Doloremque?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam assumenda
+                        consequuntur culpadistinctio dolore, eligendi eos ipsa molestias non omnis placeat quia
+                        recusandae tempora ullam veritatis. Doloremque? ntium animi aperiam assumenda consequuntur culpa
+                        distinctio dolore, eligendi eos ipsa molestias non omnis placeat quia recusandae tempora ullam
+                        veritatis. Doloremque?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium
+                        animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi eos ipsa molestias non
+                        omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa
+                        distinctio dolore, eligendi eos ipsa molestias non omnis placeat quia recusandae tempora ullam
+                        veritatis. Doloremque?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium
+                        animi aperiam assumenda consequuntur culpa distinctio dolore, eligendi eos ipsa molestias non
+                        omnis placeat quia recusandae tempora ullam veritatis. Doloremque?Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. A accusantium animi aperiam assumenda consequuntur culpa
+                        distinctio dolore, eligendi eos ipsa molestias non omnis placeat quia recusandae tempora ullam
+                        veritatis. Doloremque?
                     </p>
                 </div>
 
                 <hr className="hr-line"/>
 
-
-
             </div>
+            <h1>Comments:</h1>
+            <CommentBox/>
         </div>
+
     );
 }
 
