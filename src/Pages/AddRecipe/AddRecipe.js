@@ -31,7 +31,7 @@ function AddRecipe() {
         }catch (e) {
             console.error(e)
         }
-        console.log(data)
+        // console.log(data)
     }
 
     return(
@@ -92,7 +92,7 @@ function AddRecipe() {
                 <br/>
                 <br/>
 
-                <Link to="/recipe">
+                <Link to="/">
                 <button
                     type="submit"
                 >

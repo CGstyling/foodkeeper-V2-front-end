@@ -2,7 +2,6 @@ import React, {useRef, useState} from "react";
 import "./CommentBox.css";
 import cn from "classnames";
 import useDynamicHeightField from "./useDynamicHeightField";
-import eggs from "../../Assets/eggs.png"
 
 const INITIAL_HEIGHT = 46;
 

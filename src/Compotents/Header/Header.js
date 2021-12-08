@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import "./Header.css";
 import logoGroot from "../../Assets/logo-groot.png"
-import SearchBar from "../SearchBar/SearchBar";
 import {useHistory, Link} from "react-router-dom";
 import {AuthContext} from "../../Context/AuthContext";
 

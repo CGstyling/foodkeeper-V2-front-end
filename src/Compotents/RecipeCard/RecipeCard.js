@@ -1,17 +1,24 @@
 import React from "react";
 import "./RecipeCard.css"
 import soep from "../../Assets/soep.jpg"
+import {Link} from "react-router-dom";
 
-function RecipeCard() {
+
+function RecipeCard({recipeData}) {
+
     return(
-        //hard coded
         <div className="card">
+
             <div className="card-body">
                 <img className="card-img" src={soep} alt="soep"/>
-                <h2 className="card-title"> Asian Soup </h2>
-                <p className="card-description"> Amazing soup from asia</p>
+                <h2 className="card-title">{recipeData.recipeName}</h2>
+                {/*<p className="card-description">{data.recipeDescription}</p>*/}
             </div>
-            <button className="card-button">View recipe</button>
+
+            <Link to={`recipe/${recipeData.recipeId}`}>
+            <button className="card-button"> View recipe </button>
+            </Link>
+
         </div>
     );
 }
