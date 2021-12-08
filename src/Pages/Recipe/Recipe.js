@@ -16,7 +16,7 @@ function Recipe() {
         async function fetchRecipeData() {
             const token = localStorage.getItem("token");
             try{
-                const result = await axios.get(`http://localhost:8080/foodkeeper/recipes/1`, {
+                const result = await axios.get(`http://localhost:8080/foodkeeper/recipes/${recipeId}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,

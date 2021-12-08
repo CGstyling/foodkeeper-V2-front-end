@@ -10,7 +10,7 @@ function AddRecipe() {
     async function onFormSubmit(data) {
         const userId = localStorage.getItem("userId")
         const token = localStorage.getItem("token");
-
+        console.log("komt in de onformsubmit functie");
         try {
             const result = await axios.post("http://localhost:8080/foodkeeper/recipes",{
               recipeName: data.name,
