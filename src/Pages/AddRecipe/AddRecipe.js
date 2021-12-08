@@ -2,9 +2,10 @@ import React from "react";
 import "./AddRecipe.css"
 import {useForm} from "react-hook-form";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 function AddRecipe() {
+    const history = useHistory();
     const {register, handleSubmit} = useForm();
 
     async function onFormSubmit(data) {
@@ -31,7 +32,7 @@ function AddRecipe() {
         }catch (e) {
             console.error(e)
         }
-        // console.log(data)
+        history.push("/")
     }
 
     return(
@@ -92,13 +93,11 @@ function AddRecipe() {
                 <br/>
                 <br/>
 
-                <Link to="/">
                 <button
                     type="submit"
                 >
                     Save recipe!
                 </button>
-                </Link>
 
             </form>
         </div>

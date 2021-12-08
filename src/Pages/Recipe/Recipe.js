@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Recipe.css"
 import soep from "../../Assets/soep.jpg"
 import CommentBox from "../../Compotents/Comment/CommentBox";
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 
 function Recipe() {
