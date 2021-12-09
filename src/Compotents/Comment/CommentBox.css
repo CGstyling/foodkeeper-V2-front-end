@@ -1,114 +1,114 @@
-.comment-box textarea {
-    border: none;
-    resize: none;
-}
-
-.comment-box textarea::placeholder {
-    color: #aaa;
-}
-
-.comment-box label {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-}
-
-.comment-box button{
-    cursor: pointer;
-}
-
-.comment-box button:disabled {
-    opacity: 0.5;
-    /*cursor: not-allowed;*/
-}
-
-.comment-box button[type="submit"] {
-    background: #f3ef07;
-    color: #000000;
-    border-radius: 10px;
-}
-
-.comment-box{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 400px;
-    margin-top: 15px;
-    margin-left: 50px;
-    margin-bottom: 50px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 0 8px rgba(0,0,0, 0.2);
-    overflow: hidden;
-    padding: 14px;
-    transition: min-height 0.4s ease;
-    max-height: 46px;
-}
-
-.comment-box.modified {
-    max-height: unset;
-}
-
-.user-header {
-    transition: opacity 0.4s ease;
-    opacity: 2;
-    visibility: hidden;
-    transform: translateY(-40px);
-}
-
-.user-name-header {
-    display: flex;
-    align-items: center;
-}
-
-/*.user img {*/
-/*    border-radius: 20px;*/
-/*    margin-right: 10px;*/
+/*.comment-box textarea {*/
+/*    border: none;*/
+/*    resize: none;*/
 /*}*/
 
-.comment-box.expanded .header {
-    transform: translateY(10px);
-    opacity: 1;
-    visibility: visible;
-}
+/*.comment-box textarea::placeholder {*/
+/*    color: #aaa;*/
+/*}*/
 
-.comment-field {
-    color: #333;
-    transition: transform 0.4s ease;
-    font-size: 18px;
-    width: 100%;
-    outline: none;
-    padding: 0;
-    min-height: 60px;
-    transform: translateY(-32px);
-    line-height: 1;
-}
+/*.comment-box label {*/
+/*    height: 0;*/
+/*    width: 0;*/
+/*    visibility: hidden;*/
+/*}*/
 
-.actions {
-    width: 100%;
-    display: flex;
-    align-self: flex-end;
-    justify-content: flex-end;
-    margin-top: 50px;
-    opacity: 0;
-    transition: opacity 0.4s ease 0.2s;
-}
+/*.comment-box button{*/
+/*    cursor: pointer;*/
+/*}*/
 
-.comment-box.expanded .actions {
-    opacity: 1;
-}
+/*.comment-box button:disabled {*/
+/*    opacity: 0.5;*/
+/*    !*cursor: not-allowed;*!*/
+/*}*/
 
-.actions button {
-    margin-left: 6px;
-    font-size: 14px;
-    padding: 12px;
-    border: none;
-    line-height: 1;
-}
+/*.comment-box button[type="submit"] {*/
+/*    background: #f3ef07;*/
+/*    color: #000000;*/
+/*    border-radius: 10px;*/
+/*}*/
 
-.actions .cancel {
-    background: none;
-}
+/*.comment-box{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    max-width: 400px;*/
+/*    margin-top: 15px;*/
+/*    margin-left: 50px;*/
+/*    margin-bottom: 50px;*/
+/*    background: #fff;*/
+/*    border-radius: 20px;*/
+/*    box-shadow: 0 0 8px rgba(0,0,0, 0.2);*/
+/*    overflow: hidden;*/
+/*    padding: 14px;*/
+/*    transition: min-height 0.4s ease;*/
+/*    max-height: 46px;*/
+/*}*/
 
-.comment-box.expanded .comment-field {
-    transform: translateY(40px);
-}
+/*.comment-box.modified {*/
+/*    max-height: unset;*/
+/*}*/
+
+/*.user-header {*/
+/*    transition: opacity 0.4s ease;*/
+/*    opacity: 2;*/
+/*    visibility: hidden;*/
+/*    transform: translateY(-40px);*/
+/*}*/
+
+/*.user-name-header {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*!*.user img {*!*/
+/*!*    border-radius: 20px;*!*/
+/*!*    margin-right: 10px;*!*/
+/*!*}*!*/
+
+/*.comment-box.expanded .header {*/
+/*    transform: translateY(10px);*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*}*/
+
+/*.comment-field {*/
+/*    color: #333;*/
+/*    transition: transform 0.4s ease;*/
+/*    font-size: 18px;*/
+/*    width: 100%;*/
+/*    outline: none;*/
+/*    padding: 0;*/
+/*    min-height: 60px;*/
+/*    transform: translateY(-32px);*/
+/*    line-height: 1;*/
+/*}*/
+
+/*.actions {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    align-self: flex-end;*/
+/*    justify-content: flex-end;*/
+/*    margin-top: 50px;*/
+/*    opacity: 0;*/
+/*    transition: opacity 0.4s ease 0.2s;*/
+/*}*/
+
+/*.comment-box.expanded .actions {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*.actions button {*/
+/*    margin-left: 6px;*/
+/*    font-size: 14px;*/
+/*    padding: 12px;*/
+/*    border: none;*/
+/*    line-height: 1;*/
+/*}*/
+
+/*.actions .cancel {*/
+/*    background: none;*/
+/*}*/
+
+/*.comment-box.expanded .comment-field {*/
+/*    transform: translateY(40px);*/
+/*}*/

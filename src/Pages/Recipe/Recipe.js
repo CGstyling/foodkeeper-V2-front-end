@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Recipe.css"
 import soep from "../../Assets/soep.jpg"
-import CommentBox from "../../Compotents/Comment/CommentBox";
+import CommentBox from "../../Compotents/CommentBox/CommentBox";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 
@@ -70,7 +70,9 @@ function Recipe() {
 
             </div>
             <h1>Comments:</h1>
-            <CommentBox/>
+
+            <CommentBox recipeId={recipeId}/>
+
         </div>
 
     );
