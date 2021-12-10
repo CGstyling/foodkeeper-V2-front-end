@@ -3,7 +3,7 @@ import axios from "axios";
 import {useForm} from "react-hook-form";
 
 
-function CommentForm({recipeId}) {
+function CommentForm({recipeId, showAllComments}) {
 
     const { register, handleSubmit} = useForm();
 
@@ -31,6 +31,7 @@ function CommentForm({recipeId}) {
         } catch (e) {
             console.error(e)
         }
+        showAllComments(data.comment)
     }
 
     return(
