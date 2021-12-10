@@ -3,6 +3,7 @@ import "./AddRecipe.css"
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import FileUpload from "../../Compotents/FileUpload/FileUpload";
 
 function AddRecipe() {
     const history = useHistory();
@@ -11,11 +12,11 @@ function AddRecipe() {
     async function onFormSubmit(data) {
         const userId = localStorage.getItem("userId")
         const token = localStorage.getItem("token");
-        console.log("komt in de onformsubmit functie");
+
         try {
             const result = await axios.post("http://localhost:8080/foodkeeper/recipes",{
               recipeName: data.name,
-              //recipeFile:
+              //recipeFile: de url link meegeven die na de post zichtbaar word
               recipeIngredient: data.ingredients,
               recipeDescription: data.method,
               recipeIsPrivate: data.private,
@@ -100,6 +101,7 @@ function AddRecipe() {
                 </button>
 
             </form>
+            <FileUpload/>
         </div>
     );
 }
