@@ -5,7 +5,6 @@ function FileUpload() {
     const [fileData, setFileData] = useState("");
     const [uri, setUri] = useState("");
 
-    // extra button erbij voor uploading the file(is de GET)
     async function downloadFile(e) {
         e.preventDefault();
         const token = localStorage.getItem("token");
@@ -24,20 +23,17 @@ function FileUpload() {
         }
     }
 
-    // post is file is waar de client op submit drukt en er een link te voor schijn komt
-    function getFile(event) {
-        setFileData(event.target.files[0]);
-    }
-
     async function uploadFile(e) {
         e.preventDefault();
+        setFileData(e.target.files[0]);
+
         const data = new FormData();
         data.append("file", fileData);
 
         const token = localStorage.getItem("token");
 
         try{
-            const result = await axios.post("http://localhost:8080/foodkeeper/uploadFile",
+             const result = await axios.post("http://localhost:8080/foodkeeper/uploadFile",
                 data,
              {
                 headers: {
@@ -54,11 +50,11 @@ function FileUpload() {
     }
 
     return(
-        <form onSubmit={uploadFile}>
-            <input type="file" name="file" onChange={getFile} required/>
-            <input type="submit" name="upload"/>
+        <>
+            {/*<AddRecipe uploadFile={uploadFile}/>*/}
+            <input type="file" name="file" onChange={uploadFile} />
             <button onClick={downloadFile}>download file</button>
-        </form>
+        </>
     );
 }
 export default FileUpload;
