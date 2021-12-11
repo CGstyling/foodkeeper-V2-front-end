@@ -1,19 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./Recipe.css"
-import soep from "../../Assets/soep.jpg"
 import CommentBox from "../../Compotents/CommentBox/CommentBox";
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import DownloadFile from "../../Compotents/DownloadFile/DownloadFile";
+import BlockRecipeButton from "../../Compotents/BlockRecipeButton/BlockRecipeButton";
+import UnBlockRecipeButton from "../../Compotents/BlockRecipeButton/UnBlockRecipeButton";
+import {AuthContext} from "../../Context/AuthContext";
 
 function Recipe() {
 
     const {recipeId} = useParams();
-
+    const {user} = useContext(AuthContext);
     const[recipeData, setRecipeData] = useState({});
-
+    const [userRole, setUserRole] = useState('');
 
     useEffect(() => {
+        setUserRole(user.roleName)
         async function fetchRecipeData() {
             const token = localStorage.getItem("token");
             try{
@@ -38,6 +41,14 @@ function Recipe() {
             <div className="recipe">
 
                 <button>back</button>
+
+                {userRole === 'ROLE_ADMIN' &&
+                <UnBlockRecipeButton recipeId={recipeData.recipeId}/>
+                }
+
+                {userRole === 'ROLE_ADMIN' &&
+                <BlockRecipeButton recipeId={recipeData.recipeId}/>
+                }
 
                 {Object.keys(recipeData).length > 0 &&
                 <section>

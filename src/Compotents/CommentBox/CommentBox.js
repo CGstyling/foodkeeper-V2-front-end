@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./Comment.css"
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -8,7 +8,7 @@ function CommentBox({recipeId}) {
     const [comments, setComments] = useState([]);
     const [showComments, setShowComments] = useState(false);
 
-    // useEffect(() => {
+
 
         async function showAllComments() {
             const token = localStorage.getItem("token");
@@ -27,8 +27,6 @@ function CommentBox({recipeId}) {
                 console.error(e);
             }
         }
-        // showAllComments();
-    // }, []);
 
     function handleClick() {
         setShowComments(!showComments)
@@ -37,7 +35,7 @@ function CommentBox({recipeId}) {
     return(
         <div className="comment-box">
             <h2>Dit you liked the ricipe?</h2>
-            {/*dit is de form waar de Post comment in staat*/}
+
             <CommentForm recipeId={recipeId} showAllComments={showAllComments}/>
 
             <button id="comment-reveal" onClick={handleClick}>
