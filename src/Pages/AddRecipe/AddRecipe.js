@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./AddRecipe.css"
 import {useForm} from "react-hook-form";
 import axios from "axios";
@@ -8,6 +8,8 @@ function AddRecipe() {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
 
+    const [uri, setUri] = useState("");
+
     async function onFormSubmit(data) {
         const userId = localStorage.getItem("userId")
         const token = localStorage.getItem("token");
@@ -15,7 +17,7 @@ function AddRecipe() {
         try {
             const result = await axios.post("http://localhost:8080/foodkeeper/recipes",{
               recipeName: data.name,
-              // recipeFile: uri,
+              recipeFile: uri,
               recipeIngredient: data.ingredients,
               recipeDescription: data.method,
               recipeIsPrivate: data.private,
@@ -36,6 +38,30 @@ function AddRecipe() {
         history.push("/")
     }
 
+    async function uploadFile(e) {
+
+        const formData = new FormData();
+        formData.append("file", e.target.files[0])
+        console.log(e)
+        const token = localStorage.getItem("token");
+
+        try {
+            const result = await axios.post("http://localhost:8080/foodkeeper/uploadFile",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+            // alert(JSON.stringify(result));
+            console.log(result)
+            setUri(result.data.fileDownloadUri);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     return(
         <div className="add-recipe-container">
             <h1>Upload here a recipe</h1>
@@ -51,13 +77,15 @@ function AddRecipe() {
                     />
                 </label>
 
-                <label htmlFor="img-upload">
+                <label htmlFor="file">
                     <p>Upload here your food picture!</p>
                     <input
                         type="file"
-                        id="img-upload"
-                        {...register("image", { onChange: uploadFile})}
+                        id="file"
+                        {...register("file", {onChange:(e) => uploadFile(e)})}
+                        // onChange={(e) => {uploadFile(e)}}
                     />
+                    {/*<button onClick={uploadFile}> upload file </button>*/}
                 </label>
 
                 <label htmlFor="ingredients">

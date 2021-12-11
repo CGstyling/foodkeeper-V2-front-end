@@ -4,6 +4,7 @@ import soep from "../../Assets/soep.jpg"
 import CommentBox from "../../Compotents/CommentBox/CommentBox";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
+import DownloadFile from "../../Compotents/DownloadFile/DownloadFile";
 
 function Recipe() {
 
@@ -41,7 +42,7 @@ function Recipe() {
                 {Object.keys(recipeData).length > 0 &&
                 <section>
                 <div className="recipe-picture">
-                    <img className="recipe-picture" src={soep} alt="food-picture"/>
+                    <DownloadFile uri={recipeData.recipeFile} classname="recipe-picture" nameImage="food"/>
                 </div>
 
                 <hr className="hr-line"/>
