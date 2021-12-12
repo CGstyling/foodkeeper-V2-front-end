@@ -19,6 +19,8 @@ function CommentBox({recipeId}) {
                     },
                 });
                 setComments(result.data);
+                console.log("dit wordt een object met meer dan een string")
+                console.log(result.data)
             } catch (e) {
                 console.error(e);
             }
@@ -32,7 +34,7 @@ function CommentBox({recipeId}) {
 
     return(
         <div className="comment-box">
-            <h2>Dit you liked the ricipe?</h2>
+            <h2>Did you like the recipe?</h2>
 
             <CommentForm recipeId={recipeId} setComments={setComments}/>
 
@@ -48,14 +50,9 @@ function CommentBox({recipeId}) {
             {showComments &&
 
             <div className="comment-list">
-
-                {Object.keys(comments).length > 0 &&
-                <>
-                    {comments && comments.map((comment, index) => {
+                {comments.map((comment, index) => {
                         return <Comment key={index} comment={comment}/>
                     })}
-                </>
-                }
             </div>
             }
         </div>
