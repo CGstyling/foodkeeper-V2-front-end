@@ -12,6 +12,11 @@ function DownloadFile({uri, nameImage, classname}) {
             const token = localStorage.getItem("token");
 
             try {
+                //No image :(
+                if(uri === null){
+                    return;
+                }
+
                 const result = (await axios.get(uri,
                     {
                         headers: {

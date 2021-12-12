@@ -57,8 +57,8 @@ function Profile() {
             <div className="recipe-wrapper">
                 {Object.keys(userRecipes).length > 0 &&
                 <>
-                    {userRecipes && userRecipes.map((recipeData) => {
-                        return <RecipeCard key={recipeData.recipeId} recipeData={recipeData}/>
+                    {userRecipes && userRecipes.map((recipeData, index) => {
+                        return <RecipeCard key={index} recipeData={recipeData}/>
                     })}
                 </>
                 }

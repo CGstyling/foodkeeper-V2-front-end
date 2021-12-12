@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Comment.css"
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -8,9 +8,9 @@ function CommentBox({recipeId}) {
     const [comments, setComments] = useState([]);
     const [showComments, setShowComments] = useState(false);
 
-        async function showAllComments() {
+    useEffect(() => {
+        async function fetchAllComments() {
             const token = localStorage.getItem("token");
-
             try {
                 const result = await axios.get(`http://localhost:8080/foodkeeper/recipes/${recipeId}/comments`, {
                     headers: {
@@ -18,13 +18,13 @@ function CommentBox({recipeId}) {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                console.log(result);
-                console.log(result.data);
                 setComments(result.data);
             } catch (e) {
                 console.error(e);
             }
         }
+        fetchAllComments();
+    }, [JSON.stringify(comments)])
 
     function handleClick() {
         setShowComments(!showComments)
@@ -34,7 +34,7 @@ function CommentBox({recipeId}) {
         <div className="comment-box">
             <h2>Dit you liked the ricipe?</h2>
 
-            <CommentForm recipeId={recipeId} showAllComments={showAllComments}/>
+            <CommentForm recipeId={recipeId} setComments={setComments}/>
 
             <button id="comment-reveal" onClick={handleClick}>
                 {showComments ? "hide comments" : "show comments"}
@@ -51,8 +51,8 @@ function CommentBox({recipeId}) {
 
                 {Object.keys(comments).length > 0 &&
                 <>
-                    {comments && comments.map((comment) => {
-                        return <Comment key={comment.commentId} comment={comment}/>
+                    {comments && comments.map((comment, index) => {
+                        return <Comment key={index} comment={comment}/>
                     })}
                 </>
                 }

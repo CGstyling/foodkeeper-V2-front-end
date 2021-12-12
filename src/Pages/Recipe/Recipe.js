@@ -12,11 +12,13 @@ function Recipe() {
 
     const {recipeId} = useParams();
     const {user} = useContext(AuthContext);
+
     const[recipeData, setRecipeData] = useState({});
     const [userRole, setUserRole] = useState('');
 
     useEffect(() => {
         setUserRole(user.roleName)
+
         async function fetchRecipeData() {
             const token = localStorage.getItem("token");
             try{
