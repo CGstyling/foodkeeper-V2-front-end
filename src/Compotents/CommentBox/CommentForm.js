@@ -38,14 +38,9 @@ function CommentForm({recipeId, showAllComments}) {
         <>
         <form className="comment-form" onSubmit={handleSubmit(postComment)}>
             <div className="comment-form-fields">
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    placeholder="Name"*/}
-                {/*    {...register("name")}*/}
-                {/*/>*/}
                 <br/>
                 <textarea
-                    placeholder="Comments"
+                    placeholder="Your thoughts about this recipe"
                     rows="4"
                     {...register("comment")}
                 />

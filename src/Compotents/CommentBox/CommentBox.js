@@ -8,8 +8,6 @@ function CommentBox({recipeId}) {
     const [comments, setComments] = useState([]);
     const [showComments, setShowComments] = useState(false);
 
-
-
         async function showAllComments() {
             const token = localStorage.getItem("token");
 
@@ -50,15 +48,16 @@ function CommentBox({recipeId}) {
             {showComments &&
 
             <div className="comment-list">
-            {Object.keys(comments).length > 0 &&
-            <>
-                {comments && comments.map((comment) => {
-                    return <Comment key={comment.commentId} comment={comment}/>
-                })}
-            </>
-            }
-            </div> }
 
+                {Object.keys(comments).length > 0 &&
+                <>
+                    {comments && comments.map((comment) => {
+                        return <Comment key={comment.commentId} comment={comment}/>
+                    })}
+                </>
+                }
+            </div>
+            }
         </div>
     );
 }
