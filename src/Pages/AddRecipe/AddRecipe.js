@@ -64,7 +64,7 @@ function AddRecipe() {
 
     return(
         <div className="add-recipe-container">
-            <h1>Upload here a recipe</h1>
+            <h1>Upload your recipe now!</h1>
 
             <form className="add-recipe-form" onSubmit={handleSubmit(onFormSubmit)}>
 
@@ -73,6 +73,7 @@ function AddRecipe() {
                     <input
                         type="text"
                         id="name"
+                        placeholder="Your amazing dish name.."
                         {...register("name", {
                             required: {
                                 value: true,
@@ -84,7 +85,7 @@ function AddRecipe() {
                 </label>
 
                 <label htmlFor="file">
-                    <p>Upload here your food picture!</p>
+                    <p>Upload your most delicious picture of your recipe!</p>
                     <input
                         type="file"
                         id="file"
@@ -106,7 +107,7 @@ function AddRecipe() {
                         id="ingredients"
                         cols="80"
                         rows="10"
-                        placeholder="Your ingredients.."
+                        placeholder="Your ingredients... and yes we know, your love is the most important"
                     >
                     </textarea>
                     {errors.ingredients && <p className="errors">{errors.ingredients.message}</p>}
@@ -124,7 +125,7 @@ function AddRecipe() {
                         id="method"
                         cols="80"
                         rows="10"
-                        placeholder="Your method: step 1:... step2..."
+                        placeholder="Write what the journey will be..."
                     >
                     </textarea>
                     {errors.method && <p className="errors">{errors.method.message}</p>}
@@ -135,7 +136,7 @@ function AddRecipe() {
                         type="checkbox"
                         {...register("private")}
                     />
-                    Do you want to be your recipe private?
+                    Pretty please, keep me secret!?
                 </label>
                 <br/>
                 <br/>
