@@ -70,3 +70,7 @@
     padding: 24px;
     margin-left: 43px;
 }
+
+.errors {
+    color: red;
+}

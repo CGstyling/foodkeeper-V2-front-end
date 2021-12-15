@@ -6,7 +6,7 @@ import {useHistory} from "react-router-dom";
 
 function AddRecipe() {
     const history = useHistory();
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
     const [uri, setUri] = useState("");
 
@@ -54,7 +54,7 @@ function AddRecipe() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-            // alert(JSON.stringify(result));
+
             console.log(result)
             setUri(result.data.fileDownloadUri);
         } catch (e) {
@@ -73,8 +73,14 @@ function AddRecipe() {
                     <input
                         type="text"
                         id="name"
-                        {...register("name")}
+                        {...register("name", {
+                            required: {
+                                value: true,
+                                message: "Please name your delicious dish..."
+                            },
+                        })}
                     />
+                    {errors.name && <p className="errors">{errors.name.message}</p>}
                 </label>
 
                 <label htmlFor="file">
@@ -82,34 +88,46 @@ function AddRecipe() {
                     <input
                         type="file"
                         id="file"
+                        required={true}
                         {...register("file", {onChange:(e) => uploadFile(e)})}
-                        // onChange={(e) => {uploadFile(e)}}
                     />
-                    {/*<button onClick={uploadFile}> upload file </button>*/}
+                    {errors.file && <p className="errors">Please select a food picture for your dish...</p>}
                 </label>
 
                 <label htmlFor="ingredients">
                     <p>Your special ingredients:</p>
                     <textarea
-                        {...register("ingredients")}
+                        {...register("ingredients",  {
+                            required: {
+                                value: true,
+                                message: "Please let us know what the ingredients are.."
+                            },
+                        })}
                         id="ingredients"
                         cols="80"
                         rows="10"
                         placeholder="Your ingredients.."
                     >
                     </textarea>
+                    {errors.ingredients && <p className="errors">{errors.ingredients.message}</p>}
                 </label>
 
                 <label htmlFor="method">
                     <p>Write here what needs to be done to make this recipe perfect:</p>
                     <textarea
-                        {...register("method")}
+                        {...register("method", {
+                            required: {
+                                value: true,
+                                message: "Please let us know wich steps needs to be done for this dish...",
+                            },
+                        })}
                         id="method"
                         cols="80"
                         rows="10"
                         placeholder="Your method: step 1:... step2..."
                     >
                     </textarea>
+                    {errors.method && <p className="errors">{errors.method.message}</p>}
                 </label>
                 <br/>
                 <label htmlFor="recipe-private">
