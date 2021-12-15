@@ -58,9 +58,9 @@ function Recipe() {
 
                 <hr className="hr-line"/>
 
-                <h1>{recipeData.recipeName}</h1>
+                <h1 className="recipe-recipeName">{recipeData.recipeName}</h1>
 
-                <h1>Ingredients:</h1>
+                <h2>Ingredients:</h2>
                 <div className="recipe-ingredient-list">
 
                     <p>
@@ -68,7 +68,7 @@ function Recipe() {
                     </p>
                 </div>
 
-                <h1>Steps:</h1>
+                <h2>Steps:</h2>
                 <div className="recipe-description">
                     <p>
                         {recipeData.recipeDescription}
@@ -80,7 +80,7 @@ function Recipe() {
                 <hr className="hr-line"/>
 
             </div>
-            <h1>Comments:</h1>
+            <h2>Comments:</h2>
 
             <CommentBox recipeId={recipeId}/>
 
