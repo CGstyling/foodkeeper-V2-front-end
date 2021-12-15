@@ -42,8 +42,6 @@ function Recipe() {
 
             <div className="recipe">
 
-                <button>back</button>
-
                 {userRole === 'ROLE_ADMIN' &&
                 <UnBlockRecipeButton recipeId={recipeData.recipeId}/>
                 }
@@ -62,13 +60,12 @@ function Recipe() {
 
                 <h1>{recipeData.recipeName}</h1>
 
+                <h1>Ingredients:</h1>
                 <div className="recipe-ingredient-list">
-                    <h1>Ingredients:</h1>
-                    <ul>
-                        <li>
-                            {recipeData.recipeIngredient}
-                        </li>
-                    </ul>
+
+                    <p>
+                        {recipeData.recipeIngredient}
+                    </p>
                 </div>
 
                 <h1>Steps:</h1>
