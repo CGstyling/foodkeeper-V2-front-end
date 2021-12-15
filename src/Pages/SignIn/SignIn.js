@@ -15,7 +15,6 @@ function SignIn() {
                 password: data.password,
             });
             console.log(result);
-            //geef de token mee aan de logIn
             signInFunction(result.data.accessToken, result.data);
         } catch (e) {
             console.error(e);
@@ -24,7 +23,7 @@ function SignIn() {
 
     return(
         <div className="inner-container">
-            <h1 className="header-login">Sign in</h1>
+            {/*<h1 className="header-login"> </h1>*/}
 
             <form className="box" onSubmit={handleSubmit(handleFromSubmit)}>
 

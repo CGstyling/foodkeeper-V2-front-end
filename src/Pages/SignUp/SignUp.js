@@ -1,11 +1,10 @@
 import React from "react";
 import "./SignUp.css";
 import {useForm} from "react-hook-form";
-// import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 function SignUp({setLoginOpen, setRegisterOpen}) {
-    // const history = useHistory();
+
     const {register, handleSubmit} = useForm();
 
     async function handleFormSubmit(data) {
@@ -26,7 +25,7 @@ function SignUp({setLoginOpen, setRegisterOpen}) {
 
     return(
         <div className="inner-container">
-            <h1 className="header-login">Sign up</h1>
+            {/*<h1 className="header-login"> </h1>*/}
 
             <form className="box" onSubmit={handleSubmit(handleFormSubmit)}>
 
