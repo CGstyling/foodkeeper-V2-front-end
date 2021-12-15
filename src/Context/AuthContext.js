@@ -15,8 +15,7 @@ function AuthContextProvider({children}) {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const userId = localStorage.getItem("userId")
-        console.log(token);
-        console.log(userId);
+
         if(token && userId) {
             fetchUserData(token, userId );
         } else {
@@ -30,9 +29,8 @@ function AuthContextProvider({children}) {
     function signIn(JWT, userData) {
         localStorage.setItem("token", JWT);
         localStorage.setItem("userId", userData.userId);
-        console.log(userData);
+
         const userId = userData.userId;
-        console.log(userId);
         fetchUserData(JWT, userId);
     }
 
@@ -52,6 +50,7 @@ function AuthContextProvider({children}) {
                     username: result.data.username,
                     email: result.data.email,
                     id: userId,
+                    roleName: result.data.authRoles[0].roleName,
                 },
                 status: "done",
             });
@@ -76,7 +75,6 @@ function AuthContextProvider({children}) {
             status: "done",
         })
         history.push("/welcome")
-        console.log("Gebruiker is uitgelogd")
     }
 
     const data = {

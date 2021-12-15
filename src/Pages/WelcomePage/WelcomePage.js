@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 import logo from "../../Assets/logo-groot.png"
+import getGreetingBasedOnTimeOfDay from "../../Helpers/greetingHelper";
 
 function WelcomePage() {
     const[loginOpen, setLoginOpen] = useState(false);
@@ -10,13 +11,13 @@ function WelcomePage() {
     return(
 
         <div className="container">
+
             <img src={logo} alt="logo"/>
 
-            <h1>Welcome to foodkeeper</h1>
-            {/*<h3>Keep track of all your recipes</h3>*/}
+            <div className="welcome">
+            <h2>{getGreetingBasedOnTimeOfDay(new Date().getHours())}, welcome to foodkeeper</h2>
 
             <div className="box-controller">
-
                 <div
                     className={(loginOpen ? "selected-controller" : "controller")}
                      onClick={() => { setLoginOpen(true); setRegisterOpen(false)}}
@@ -33,10 +34,11 @@ function WelcomePage() {
 
             </div>
 
-
             <div className="box-container">
                 {loginOpen && <SignIn/>}
                 {registerOpen && <SignUp setRegisterOpen={setRegisterOpen} setLoginOpen={setLoginOpen}/>}
+            </div>
+
             </div>
 
         </div>

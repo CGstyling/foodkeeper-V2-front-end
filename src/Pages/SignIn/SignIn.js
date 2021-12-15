@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import axios from "axios";
 
 function SignIn() {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const {signInFunction} = useContext(AuthContext);
 
     async function handleFromSubmit(data) {
@@ -14,8 +14,6 @@ function SignIn() {
                 username: data.username,
                 password: data.password,
             });
-            console.log(result);
-            //geef de token mee aan de logIn
             signInFunction(result.data.accessToken, result.data);
         } catch (e) {
             console.error(e);
@@ -24,7 +22,6 @@ function SignIn() {
 
     return(
         <div className="inner-container">
-            <h1 className="header-login">Sign in</h1>
 
             <form className="box" onSubmit={handleSubmit(handleFromSubmit)}>
 
@@ -35,8 +32,14 @@ function SignIn() {
                         type="text"
                         id="username"
                         placeholder="Your username"
-                        {...register("username")}
+                        {...register("username", {
+                            required: {
+                                value: true,
+                                message: "This is required to sign in"
+                            },
+                        })}
                     />
+                    { errors.username && <p className="errors">{errors.username.message}</p> }
                 </div>
 
                 <div className="input-group">
@@ -46,8 +49,14 @@ function SignIn() {
                         type="password"
                         id="password"
                         placeholder="Your password"
-                        {...register("password")}
+                        {...register("password", {
+                            required: {
+                                value: true,
+                                message: "This is required to sign in"
+                            },
+                        })}
                     />
+                    { errors.password && <p className="errors">{errors.password.message}</p> }
                 </div>
                 <button
                     type="submit"

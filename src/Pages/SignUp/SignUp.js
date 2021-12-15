@@ -1,12 +1,11 @@
 import React from "react";
 import "./SignUp.css";
 import {useForm} from "react-hook-form";
-// import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 function SignUp({setLoginOpen, setRegisterOpen}) {
-    // const history = useHistory();
-    const {register, handleSubmit} = useForm();
+
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
     async function handleFormSubmit(data) {
         try{
@@ -14,19 +13,16 @@ function SignUp({setLoginOpen, setRegisterOpen}) {
                 email: data.email,
                 username: data.username,
                 password: data.password,
-            })
-            console.log(result);
+            });
         }catch (e) {
             console.error(e);
         }
         setLoginOpen(true);
         setRegisterOpen(false);
-        console.log(data)
     }
 
     return(
         <div className="inner-container">
-            <h1 className="header-login">Sign up</h1>
 
             <form className="box" onSubmit={handleSubmit(handleFormSubmit)}>
 
@@ -37,19 +33,39 @@ function SignUp({setLoginOpen, setRegisterOpen}) {
                         type="text"
                         id="username"
                         placeholder="Your username"
-                        {...register("username")}
+                        {...register("username", {
+                            required: {
+                                value: true,
+                                message: "This is required to sign up"
+                            },
+                            minLength: {
+                                value: 3,
+                                message: "Your username must me 3 characters long"
+                            }
+                        })}
                     />
+                    { errors.username && <p className="errors">{errors.username.message}</p>}
                 </div>
 
                 <div className="input-group">
                     <label htmlFor="emailadress">Email:</label>
                     <input
                         className="login-input"
-                        type="text"
+                        type="email"
                         id="emailadress"
                         placeholder="Your email-adress"
-                        {...register("email")}
+                        {...register("email", {
+                            required: {
+                                value: true,
+                                message: "This is required to sign up"
+                            },
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                              message: "Please enter a valid e-mail adress"
+                            },
+                        })}
                     />
+                    { errors.email && <p className="errors">{errors.email.message}</p> }
                 </div>
 
                 <div className="input-group">
@@ -59,15 +75,27 @@ function SignUp({setLoginOpen, setRegisterOpen}) {
                         type="password"
                         id="password"
                         placeholder="Your password"
-                        {...register("password")}
+                        {...register("password", {
+                            required: {
+                                value: true,
+                                message: "This is required to sign up"
+                            },
+                            minLength: {
+                                value: 8,
+                                message: "Your password need to be 8 characters long"
+                            }
+                        })}
                     />
+                    { errors.password && <p className="errors">{errors.password.message}</p> }
                 </div>
+
                 <button
                     type="submit"
                     className="login-btn"
                 >
                     Sign up
                 </button>
+
             </form>
         </div>
     );

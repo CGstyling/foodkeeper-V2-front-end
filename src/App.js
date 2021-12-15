@@ -35,7 +35,7 @@ function App() {
                         <Route path="/add-recipe">
                             <AddRecipe/>
                         </Route>
-                        <Route path="/recipe">
+                        <Route path="/recipe/:recipeId">
                             <Recipe/>
                         </Route>
                     </>

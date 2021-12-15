@@ -1,10 +1,12 @@
-.header {
+.header-home {
     width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: white;
     color: black;
-    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.23);
 }
 
 .logo-container {
@@ -20,20 +22,67 @@
     margin-left: 20px;
 }
 
+.logo-container img:hover {
+    transform: scale(1.1);
+}
+
 .header-buttons {
-    /*margin: 30px;*/
     align-items: center;
 }
-.header-buttons button {
-    background-color: transparent;
-    border: 3px solid #f2ee56;
-    color: #f2ee56;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    cursor: pointer;
-    margin: 10px;
-    padding: 40px;
-    border-radius: 12px;
+.header-button-plus {
+    box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.44);
+    background: #f2ee56;
+    width:50px;
+    height:50px;
+    border: 5px solid #f2ee56;
+    border-radius:100%;
+    position:relative;
+    margin-top: 25px;
+    margin-right: 40px;
+    display:inline-block;
+    vertical-align:middle;;
+}
+
+.header-button-plus:before, .header-button-plus:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+}
+
+.header-button-plus:before {
+    width: 2px;
+    margin: 2px auto;
+}
+
+.header-button-plus:after{
+    margin: auto 2px;
+    height: 2px;
+}
+
+.header-button-plus:hover {
+    transform: scale(1.1);
+}
+
+.header-bn {
+    box-shadow: 0px 0px 20px 0px rgba(102, 101, 45, 0.37);
+    background: transparent;
+    width:100px;
+    height:100px;
+    border-radius:100%;
+    position:relative;
+    margin-top: 25px;
+    margin-right: 40px;
+    display:inline-block;
+    vertical-align:middle;
+    font-size: 16px;
+}
+
+.header-bn:hover {
+    transform: scale(1.1);
+    background-color: rgba(242, 238, 86, 0.78);
+    transition: background-color 200ms ease-in;
 }
