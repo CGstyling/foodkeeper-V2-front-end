@@ -24,7 +24,6 @@ function Home() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                console.log(result.data);
                 setRecipeDetails(result.data);
             } catch (e) {
                 console.error(e);
@@ -37,7 +36,6 @@ function Home() {
     return (
 
         <div className="recipe-wrapper">
-            {/*<RecipeCard data={recipeDetails}/>*/}
             {Object.keys(recipeDetails).length > 0 &&
             <>
                 {recipeDetails && recipeDetails.map((recipeData, index) => {

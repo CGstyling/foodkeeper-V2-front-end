@@ -5,7 +5,6 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import DownloadFile from "../../Compotents/DownloadFile/DownloadFile";
 import BlockRecipeButton from "../../Compotents/BlockRecipeButton/BlockRecipeButton";
-import UnBlockRecipeButton from "../../Compotents/BlockRecipeButton/UnBlockRecipeButton";
 import {AuthContext} from "../../Context/AuthContext";
 
 function Recipe() {
@@ -28,7 +27,6 @@ function Recipe() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                console.log(result)
                 setRecipeData(result.data);
             }catch (e) {
                 console.error(e)
@@ -41,10 +39,6 @@ function Recipe() {
         <div className="recipe-container">
 
             <div className="recipe">
-
-                {userRole === 'ROLE_ADMIN' &&
-                <UnBlockRecipeButton recipeId={recipeData.recipeId}/>
-                }
 
                 {userRole === 'ROLE_ADMIN' &&
                 <BlockRecipeButton recipeId={recipeData.recipeId}/>

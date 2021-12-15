@@ -13,14 +13,12 @@ function SignUp({setLoginOpen, setRegisterOpen}) {
                 email: data.email,
                 username: data.username,
                 password: data.password,
-            })
-            console.log(result);
+            });
         }catch (e) {
             console.error(e);
         }
         setLoginOpen(true);
         setRegisterOpen(false);
-        console.log(data)
     }
 
     return(

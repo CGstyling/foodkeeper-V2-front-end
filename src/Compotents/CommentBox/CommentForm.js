@@ -27,7 +27,6 @@ function CommentForm({recipeId, setComments}) {
                      Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(result);
         } catch (e) {
             console.error(e)
         }

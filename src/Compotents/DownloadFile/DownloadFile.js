@@ -12,7 +12,6 @@ function DownloadFile({uri, nameImage, classname}) {
             const token = localStorage.getItem("token");
 
             try {
-                //No image :(
                 if(uri === null){
                     return;
                 }
@@ -25,9 +24,7 @@ function DownloadFile({uri, nameImage, classname}) {
                         },
                         responseType: 'blob',
                     })).data;
-                console.log(result);
-                console.log("is gelukt")
-                setImage(URL.createObjectURL(result))
+                setImage(URL.createObjectURL(result));
             } catch (e) {
                 console.error(e);
             }

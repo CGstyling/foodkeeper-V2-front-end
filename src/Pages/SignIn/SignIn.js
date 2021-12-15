@@ -14,7 +14,6 @@ function SignIn() {
                 username: data.username,
                 password: data.password,
             });
-            console.log(result);
             signInFunction(result.data.accessToken, result.data);
         } catch (e) {
             console.error(e);

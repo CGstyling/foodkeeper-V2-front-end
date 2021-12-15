@@ -21,7 +21,6 @@ function Profile() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                console.log(result.data);
                 setUserRecipes(result.data);
             } catch (e) {
                 console.error(e)

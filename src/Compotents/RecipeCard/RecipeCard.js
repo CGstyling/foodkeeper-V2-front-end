@@ -12,7 +12,6 @@ function RecipeCard({recipeData}) {
             <div className="card-body">
                 <DownloadFile uri={recipeData.recipeFile} classname="card-img" nameImage="food"/>
                 <h2 className="card-title">{recipeData.recipeName}</h2>
-                {/*<p className="card-description">{data.recipeDescription}</p>*/}
             </div>
 
             <Link to={`recipe/${recipeData.recipeId}`}>

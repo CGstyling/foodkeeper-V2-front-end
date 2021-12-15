@@ -30,8 +30,6 @@ function AddRecipe() {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(result);
-
         }catch (e) {
             console.error(e)
         }
@@ -54,8 +52,6 @@ function AddRecipe() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-
-            console.log(result)
             setUri(result.data.fileDownloadUri);
         } catch (e) {
             console.error(e);
