@@ -12,32 +12,36 @@ function Header() {
         <nav className="header-home">
 
             <Link to="/">
-        <span className="logo-container">
-              <img src={logoGroot} alt="logo"/>
-        </span>
+                <span className="logo-container">
+                      <img src={logoGroot} alt="logo"/>
+                </span>
             </Link>
-
-            {/*<SearchBar/>*/}
 
             <span className="header-buttons">
              <button
+                 className="header-button-plus"
                  type="button"
                  onClick={() => history.push("/add-recipe")}
              >
-                +
+
             </button>
+
             <button
+                className="header-bn"
                 type="button"
                 onClick={() => history.push("/profile")}
             >
                 Profile
             </button>
+
                 <button
+                    className="header-bn"
                     type="button"
                     onClick={signOutFunction}
                 >
                     Log out
                 </button>
+
             </span>
 
         </nav>
