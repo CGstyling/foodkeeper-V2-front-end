@@ -1,9 +1,9 @@
 .profile-container{
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
-    /*justify-content: center;*/
     background-color: rgba(242, 238, 86, 0.41);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 0px rgba(59, 59, 32, 0.27);
     height: auto;
     margin-right: 100px;
     margin-left: 100px;
@@ -11,29 +11,33 @@
 }
 
 .header-profile {
-    background-color: white;
+    background-color: #ffffff;
     align-items: center;
     align-content: flex-start;
     margin: 30px;
     justify-content: center;
     padding: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.15);
+    border-radius: 20px;
 }
 
-.buttons-profile button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.header-profile h1 {
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #f2ee56;
 }
 
-.buttons-profile hr {
-    border-top: 2px solid black;
-    border-radius: 5px;
+.header-profile p {
+    font-size: 16px;
+    margin: 10px;
+    font-weight: bold;
 }
 
 .recipe-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(12rem, 16rem));
-    gap: 2rem;
+    gap: 32px;
     justify-content: center;
     padding: 20px;
 }

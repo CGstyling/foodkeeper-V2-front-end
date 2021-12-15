@@ -6,10 +6,8 @@ import axios from "axios";
 
 
 function Profile() {
-    //fetch profiel gegevens van auth
-    const {user} = useContext(AuthContext);
 
-    //fetch all recipes by user id === userid from token
+    const {user} = useContext(AuthContext);
     const [userRecipes, setUserRecipes] = useState([]);
 
     useEffect(() => {
@@ -36,23 +34,11 @@ function Profile() {
         <div className="profile-container">
 
             <div className="header-profile">
-                <h1>Recepten pagina van {user.username}</h1>
-                <p>Gebruikersnaam: {user.username}</p>
-                <p>Recepten: {userRecipes.length} </p>
+                <h1>{user.username} 's Recipes</h1>
+                <p>Username: {user.username}</p>
+                <p>Recipes: {userRecipes.length} </p>
+            </div>
 
-            </div>
-            <div className="buttons-profile">
-                {/*<button>*/}
-                {/*    All recipes*/}
-                {/*</button>*/}
-                {/*<button>*/}
-                {/*    category*/}
-                {/*</button>*/}
-                {/*<button>*/}
-                {/*    edit profile*/}
-                {/*</button>*/}
-                <hr/>
-            </div>
 
             <div className="recipe-wrapper">
                 {Object.keys(userRecipes).length > 0 &&

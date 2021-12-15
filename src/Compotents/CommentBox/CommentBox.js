@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import "./Comment.css"
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -8,7 +8,6 @@ import axios from "axios";
 function CommentBox({recipeId}) {
     const [comments, setComments] = useState([]);
     const [showComments, setShowComments] = useState(false);
-    const commentsRef = useRef(comments);
 
     useEffect(() => {
         async function fetchAllComments() {
@@ -21,16 +20,12 @@ function CommentBox({recipeId}) {
                     },
                 });
                 setComments(result.data);
-                console.log("dit wordt een object met meer dan een string")
-                console.log(result.data)
             } catch (e) {
                 console.error(e);
             }
         }
         fetchAllComments();
-    }, [commentsRef.current])
-
-        // [JSON.stringify(comments)])
+    }, [JSON.stringify(comments)])
 
     function handleClick() {
         setShowComments(!showComments)
